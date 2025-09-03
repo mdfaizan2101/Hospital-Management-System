@@ -26,6 +26,18 @@ app.use(cookieParser());
 app.use(express.json()); // For parsing application/json
 app.use(express.urlencoded({ extended: true })); // For parsing form data
 
+// Add root route for testing
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Hospital Management System API is running!',
+    version: '1.0.0',
+    endpoints: {
+      users: '/api/v1/user',
+      appointments: '/api/v1/appointment',
+      messages: '/api/v1/message'
+    }
+  });
+});
 
 app.use(
     fileUpload({

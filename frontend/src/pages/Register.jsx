@@ -5,6 +5,8 @@ import { Context } from "../main";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const [firstName, setFirstName] = useState("");
@@ -23,7 +25,7 @@ const Register = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/user/patient/register",
+          `${API_BASE}/api/v1/user/patient/register`,
           { firstName, lastName, email, phone, aadhaar, dob, gender, password, role: "Patient" },
           {
             withCredentials: true,

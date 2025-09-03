@@ -6,12 +6,14 @@ import { toast } from "react-toastify";
 import { Context } from "../main";
 
 const Navbar = () => {
-    const [show, setShow] = useState(false);
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
+  const [show, setShow] = useState(false);
     const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
     const handleLogout = async () => {
         await axios
-        .get("http://localhost:4000/api/v1/user/patient/logout", {
+        .get(`${API_BASE}/api/v1/user/patient/logout`, {
             withCredentials: true,
         })
         .then((res) => {
@@ -46,8 +48,8 @@ const Navbar = () => {
                 <Link to={"/about"} onClick={() => setShow(!show)}>
                 About Us
                 </Link>
-                <a href="http://localhost:5174" target="_blank" rel="noopener noreferrer" onClick={() => setShow(!show)} style={{ textDecoration: 'none', color: 'inherit', marginLeft: '16px' }}>
-                  Dashboard
+                <a href={import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174"} target="_blank" rel="noopener noreferrer" onClick={() => setShow(!show)} style={{ textDecoration: 'none', color: 'inherit', marginLeft: '16px' }}>
+                   Dashboard
                 </a>
             </div>
             {isAuthenticated ? (

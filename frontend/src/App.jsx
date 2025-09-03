@@ -22,8 +22,9 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/patient/me",
+          `${API_BASE}/api/v1/user/patient/me`,
           {
             withCredentials: true,
           }
