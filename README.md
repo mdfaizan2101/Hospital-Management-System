@@ -11,6 +11,7 @@ A comprehensive, full-stack Hospital Management System built with modern web tec
 
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
+- [Live Demo](#-live-demo)
 - [Project Structure](#-project-structure)
 - [Installation](#-installation)
 - [Configuration](#-configuration)
@@ -86,6 +87,37 @@ A comprehensive, full-stack Hospital Management System built with modern web tec
 - **Linting**: ESLint 9.30.1
 - **Package Manager**: npm
 - **Environment**: dotenv
+
+## 🌐 Live Demo
+
+### Patient Portal (Frontend)
+**🔗 [Visit Patient Portal](https://your-frontend.vercel.app)**
+
+- Patient registration and login
+- Appointment booking system
+- Department and doctor browsing
+- Contact form and messaging
+
+### Admin Dashboard
+**🔗 [Visit Admin Dashboard](https://your-dashboard.vercel.app)**
+
+- Admin authentication
+- Doctor management (add, update, delete)
+- Appointment management
+- User management
+- System analytics
+
+### API Documentation
+**🔗 [API Base URL](https://your-api.onrender.com)**
+
+- RESTful API endpoints
+- Authentication system
+- File upload capabilities
+- Real-time data management
+
+---
+
+**Note**: Replace the placeholder URLs above with your actual deployed URLs once you deploy the project.
 
 ## 📁 Project Structure
 
