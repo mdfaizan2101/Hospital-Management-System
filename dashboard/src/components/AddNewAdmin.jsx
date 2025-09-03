@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const AddNewAdmin = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const [firstName, setFirstName] = useState("");
@@ -23,7 +25,7 @@ const AddNewAdmin = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/user/admin/addnew",
+          `${API_BASE}/api/v1/user/admin/addnew`,
           { firstName, lastName, email, phone, aadhaar, dob, gender, password },
           {
             withCredentials: true,

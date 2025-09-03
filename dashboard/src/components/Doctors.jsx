@@ -5,6 +5,8 @@ import { Context } from "../main";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Doctors = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const [doctors, setDoctors] = useState([]);
   const { isAuthenticated } = useContext(Context);
   const [loadingIds, setLoadingIds] = useState({});
@@ -17,8 +19,8 @@ const Doctors = () => {
 
   const refreshDoctors = async () => {
     try {
-      const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/doctors",
+              const { data } = await axios.get(
+          `${API_BASE}/api/v1/user/doctors`,
         { withCredentials: true }
       );
       setDoctors(data.doctors);
@@ -42,7 +44,7 @@ const Doctors = () => {
     try {
       setLoading(doctorToDelete._id, true);
       await axios.delete(
-        `http://localhost:4000/api/v1/user/doctor/${doctorToDelete._id}?confirm=true`,
+        `${API_BASE}/api/v1/user/doctor/${doctorToDelete._id}?confirm=true`,
         { withCredentials: true }
       );
       toast.success("Doctor deleted successfully");

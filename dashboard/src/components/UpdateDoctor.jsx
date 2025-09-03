@@ -5,6 +5,8 @@ import { Context } from "../main";
 import axios from "axios";
 
 const UpdateDoctor = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const { isAuthenticated } = useContext(Context);
   const { id } = useParams();
   const navigateTo = useNavigate();
@@ -40,7 +42,7 @@ const UpdateDoctor = () => {
     const fetchDoctorData = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/user/doctors",
+          `${API_BASE}/api/v1/user/doctors`,
           { withCredentials: true }
         );
         const doctor = data.doctors.find(d => d._id === id);
@@ -103,7 +105,7 @@ const UpdateDoctor = () => {
       }
 
       await axios.put(
-        `http://localhost:4000/api/v1/user/doctor/${id}`,
+        `${API_BASE}/api/v1/user/doctor/${id}`,
         formData,
         {
           withCredentials: true,

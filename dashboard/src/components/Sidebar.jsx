@@ -12,13 +12,15 @@ import { Context } from "../main";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const [show, setShow] = useState(false);
 
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const handleLogout = async () => {
     await axios
-      .get("http://localhost:4000/api/v1/user/admin/logout", {
+      .get(`${API_BASE}/api/v1/user/admin/logout`, {
         withCredentials: true,
       })
       .then((res) => {

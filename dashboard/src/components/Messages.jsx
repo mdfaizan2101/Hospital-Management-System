@@ -5,6 +5,8 @@ import { Context } from "../main";
 import { Navigate } from "react-router-dom";
 
 const Messages = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const [messages, setMessages] = useState([]);
   const { isAuthenticated } = useContext(Context);
 
@@ -12,7 +14,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/message/getall",
+          `${API_BASE}/api/v1/message/getall`,
           { withCredentials: true }
         );
         setMessages(data.messages);

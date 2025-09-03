@@ -20,6 +20,8 @@ import AddNewAdmin from "./components/AddNewAdmin";
 import "./App.css";
 
 const App = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const { isAuthenticated, setIsAuthenticated, admin, setAdmin } =
     useContext(Context);
 
@@ -27,7 +29,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/admin/me",
+          `${API_BASE}/api/v1/user/admin/me`,
           {
             withCredentials: true,
           }

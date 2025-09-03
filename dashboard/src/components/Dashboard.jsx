@@ -7,6 +7,8 @@ import { GoCheckCircleFill } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 const Dashboard = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const [appointments, setAppointments] = useState([]);
   const [doctorsCount, setDoctorsCount] = useState(0);
 
@@ -14,7 +16,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/appointment/getall",
+          `${API_BASE}/api/v1/appointment/getall`,
           { withCredentials: true }
         );
         setAppointments(data.appointments);
@@ -25,7 +27,7 @@ const Dashboard = () => {
     const fetchDoctorsCount = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/user/doctors",
+          `${API_BASE}/api/v1/user/doctors`,
           { withCredentials: true }
         );
         setDoctorsCount(Array.isArray(data.doctors) ? data.doctors.length : 0);
@@ -62,7 +64,7 @@ const Dashboard = () => {
   const handleUpdateStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/appointment/update/${appointmentId}`,
+        `${API_BASE}/api/v1/appointment/update/${appointmentId}`,
         { status },
         { withCredentials: true }
       );

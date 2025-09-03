@@ -5,6 +5,8 @@ import { Context } from "../main";
 import axios from "axios";
 
 const Login = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -18,7 +20,7 @@ const Login = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/user/login",
+          `${API_BASE}/api/v1/user/login`,
           { email, password, confirmPassword, role: "Admin" },
           {
             withCredentials: true,
