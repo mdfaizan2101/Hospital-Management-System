@@ -398,7 +398,6 @@ npm test
 
 ## 📞 Contact
 
-**Project Maintainer**: [Your Name]
 - Email: mohdfaizan21012002@gmail.com
 - GitHub: https://github.com/mdfaizan2101
 - LinkedIn: https://www.linkedin.com/in/mdfaizan2101/
