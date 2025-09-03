@@ -11,6 +11,9 @@ export const generateToken = (user, message, statusCode, res) => {
             Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         ), // Convert days to milliseconds
         httpOnly: true, // Make the cookie inaccessible to JavaScript
+        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Allow cross-site cookies in production
+        domain: process.env.NODE_ENV === 'production' ? undefined : undefined, // Let browser set domain
     })
     .json({
         success: true,

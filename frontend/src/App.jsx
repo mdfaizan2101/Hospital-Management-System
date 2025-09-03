@@ -37,7 +37,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthenticated]);
+  }, []); // Remove isAuthenticated from dependency array
 
   return  (
     <>

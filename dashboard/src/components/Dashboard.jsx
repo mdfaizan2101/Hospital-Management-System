@@ -133,7 +133,7 @@ const Dashboard = () => {
                 ? appointments.map((appointment) => (
                     <tr key={appointment._id}>
                       <td>{`${appointment.firstName} ${appointment.lastName}`}</td>
-                      <td>{appointment.appointment_date.substring(0, 16)}</td>
+                      <td>{appointment.appointment_date.substring(0, 10)}</td>
                       <td>{`${appointment.doctor.firstName} ${appointment.doctor.lastName}`}</td>
                       <td>{appointment.department}</td>
                       <td>
