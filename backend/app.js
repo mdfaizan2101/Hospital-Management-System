@@ -13,10 +13,16 @@ import appointmentRouter from './router/appointmentRouter.js';
 const app = express();
 config({path: './config/config.env'});
 
+// Trust the first proxy (required for secure cookies behind proxies like Render/Heroku)
+app.set('trust proxy', 1);
+
+// Build allowed origins from env, ignoring missing values
+const allowedOrigins = [process.env.FRONTEND_URL, process.env.DASHBOARD_URL].filter(Boolean);
+
 app.use(
     cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     })
 );
