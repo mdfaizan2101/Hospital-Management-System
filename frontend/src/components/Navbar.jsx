@@ -7,6 +7,7 @@ import { Context } from "../main";
 
 const Navbar = () => {
   const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL;
   
   const [show, setShow] = useState(false);
     const { isAuthenticated, setIsAuthenticated } = useContext(Context);
@@ -48,9 +49,11 @@ const Navbar = () => {
                 <Link to={"/about"} onClick={() => setShow(!show)}>
                 About Us
                 </Link>
-                <a href={import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174"} target="_blank" rel="noopener noreferrer" onClick={() => setShow(!show)} style={{ textDecoration: 'none', color: 'inherit', marginLeft: '16px' }}>
-                   Dashboard
-                </a>
+                {DASHBOARD_URL && (
+                  <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer" onClick={() => setShow(!show)} style={{ textDecoration: 'none', color: 'inherit', marginLeft: '16px' }}>
+                    Dashboard
+                  </a>
+                )}
             </div>
             {isAuthenticated ? (
                 <button className="logoutBtn btn" onClick={handleLogout}>
