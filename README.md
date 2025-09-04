@@ -99,7 +99,7 @@ A comprehensive, full-stack Hospital Management System built with modern web tec
 - Contact form and messaging
 
 ### Admin Only Dashboard
-**(https://hms-dashboard-fawn.vercel.app/login)**
+**(https://hms-dashboard-fawn.vercel.app)**
 
 - Admin authentication
 - Doctor management (add, update, delete)
