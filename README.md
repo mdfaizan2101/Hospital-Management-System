@@ -91,15 +91,15 @@ A comprehensive, full-stack Hospital Management System built with modern web tec
 ## 🌐 Live Demo
 
 ### Patient Portal (Frontend)
-**🔗 [Visit Patient Portal](https://your-frontend.vercel.app)**
+**(https://hospital-management-system-wheat-eta.vercel.app/)**
 
 - Patient registration and login
 - Appointment booking system
 - Department and doctor browsing
 - Contact form and messaging
 
-### Admin Dashboard
-**🔗 [Visit Admin Dashboard](https://your-dashboard.vercel.app)**
+### Admin Only Dashboard
+**(https://hms-dashboard-fawn.vercel.app/login)**
 
 - Admin authentication
 - Doctor management (add, update, delete)
@@ -107,8 +107,8 @@ A comprehensive, full-stack Hospital Management System built with modern web tec
 - User management
 - System analytics
 
-### API Documentation
-**🔗 [API Base URL](https://your-api.onrender.com)**
+### Backend 
+**(https://hms-backend-hclq.onrender.com)**
 
 - RESTful API endpoints
 - Authentication system
